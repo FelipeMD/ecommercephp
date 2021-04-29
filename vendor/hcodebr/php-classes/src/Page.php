@@ -2,7 +2,7 @@
 
 namespace Hcode;
 
-user Rain\Tpl;
+use Rain\Tpl;
 
 class Page 
 {
@@ -17,7 +17,7 @@ class Page
 
 	public funciton __constructor($opts = array())
 	{
-
+		/*merge de array*/ 
 		$this->options = array_merge($this->defaults, $opts);
 
 		$config = array(
@@ -30,12 +30,6 @@ class Page
 		$this->tpl = new Tpl;
 
 		$this->setData($this->options["data"]);
-
-
-		foreach ($this->options["data"] as $key => $value) 
-		{
-			$this->tpl->assign($key, $value);
-		}
 
 		$this->tpl->draw('header');
 
@@ -66,8 +60,5 @@ class Page
 	} 
 
 }
-
-
-
 
 ?>
